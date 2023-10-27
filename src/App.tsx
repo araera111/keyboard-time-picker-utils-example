@@ -1,4 +1,4 @@
 export const App = () => {
-  const a = "";
+  /* app */
   return <div>App</div>;
 };
