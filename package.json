@@ -10,7 +10,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "biome": "pnpm biome check --apply ./src/*",
-    "gen": "pnpm plop"
+    "gen": "pnpm plop",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/ramda": "^0.29.7",
