@@ -1,4 +1,13 @@
+import { useState } from "react";
+import { InputWrapper } from "./components/InputWrapper";
+import "./index.css";
 export const App = () => {
-  /* app */
-  return <div>App</div>;
+	const [value, setValue] = useState("");
+	console.log({ value });
+	/* app */
+	return (
+		<div>
+			<InputWrapper />
+		</div>
+	);
 };
