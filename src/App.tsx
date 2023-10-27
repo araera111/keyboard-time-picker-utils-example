@@ -1,13 +1,5 @@
-import { useState } from "react";
-import { InputWrapper } from "./components/InputWrapper";
+import { css } from "../styled-system/css";
 import "./index.css";
 export const App = () => {
-	const [value, setValue] = useState("");
-	console.log({ value });
-	/* app */
-	return (
-		<div>
-			<InputWrapper />
-		</div>
-	);
+	return <div className={css({ fontSize: "3xl" })}>App </div>;
 };
