@@ -6,5 +6,6 @@ export default defineConfig({
   test: {
     globals: true,
   },
+  base: process.env.GITHUB_PAGES ? "keyboard-time-picker-utils-example" : "./",
   plugins: [react()],
 });
