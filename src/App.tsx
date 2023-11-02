@@ -1,38 +1,57 @@
 import { useState } from "react";
-import { css } from "../styled-system/css";
 import { hstack } from "../styled-system/patterns";
 import "./index.css";
+import {
+  HHmmLRHandler,
+  basicKeyboardTimePickerOption,
+  makeOptions,
+} from "keyboard-time-picker-utils";
+import { produce } from "immer";
+import { InputWrapper } from "./components/InputWrapper";
+import { isNil } from "remeda";
 
 export const App = () => {
   const [HHmm, setHHmm] = useState("10:00");
+  const options = makeOptions({
+    howMany: 1,
+    baseOption: produce(basicKeyboardTimePickerOption, (draft) => {
+      draft.move.moveToNextInputOnKeyPress = true;
+      draft.step.useStep = true;
+      draft.step.timeStep = 15;
+    }),
+  });
+  const option = options[0];
+  if (isNil(option)) return null;
   return (
     <div>
-      <div className={hstack({ gap: 2 })}>
-        <input
-          className={
-            "border w-4 text-center text-black font-bold text-sm focus:outline-none focus:ring-0 focus:border-none focus:ring-transparent focus:caret-transparent focus:bg-blue-800 focus:text-blue-50"
-          }
-          value={HHmm}
-          id={id}
-          onChange={(e) => e.preventDefault()}
-          onKeyDown={(e) => {
-            e.preventDefault();
-            const result = HHmmLRHandler({
-              input: e.key,
-              HHmm,
-              id,
-              type: "",
-              option,
-              shiftKey: e.nativeEvent.shiftKey,
-            });
-            setHHmm(result);
-            onChange(cleanPatternTime({ time: result }));
-          }}
+      <div className={hstack({ gap: 0, p: 4 })}>
+        <div>
+          <InputWrapper
+            HHmm={HHmm}
+            setHHmm={setHHmm}
+            type={"HLeft"}
+            option={option}
+          />
+        </div>
+        <InputWrapper
+          HHmm={HHmm}
+          setHHmm={setHHmm}
+          type={"HRight"}
+          option={option}
         />
-        <div>1</div>
         <div>:</div>
-        <div>1</div>
-        <div>1</div>
+        <InputWrapper
+          HHmm={HHmm}
+          setHHmm={setHHmm}
+          type={"MLeft"}
+          option={option}
+        />
+        <InputWrapper
+          HHmm={HHmm}
+          setHHmm={setHHmm}
+          type={"MRight"}
+          option={option}
+        />
       </div>
     </div>
   );

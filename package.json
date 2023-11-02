@@ -15,10 +15,13 @@
   },
   "dependencies": {
     "@types/ramda": "^0.29.7",
+    "fp-ts": "^2.16.1",
+    "immer": "^10.0.3",
     "keyboard-time-picker-utils": "1.0.4-c",
     "ramda": "^0.29.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remeda": "^1.28.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.3.3",
