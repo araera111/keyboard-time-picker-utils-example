@@ -2,7 +2,6 @@ import { useState } from "react";
 import { hstack } from "../styled-system/patterns";
 import "./index.css";
 import {
-  HHmmLRHandler,
   basicKeyboardTimePickerOption,
   makeOptions,
 } from "keyboard-time-picker-utils";
